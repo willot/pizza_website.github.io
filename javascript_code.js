@@ -92,7 +92,7 @@ $(document).ready(function() {
 			changePizzaName('meat', index, meatPizza, 'meatPizza');
 			changePizzaName('cheese', index, cheesePizza, 'cheesePizza');
 
-			}
+		}
 
 		function changePizzaName(element1, element2, element3, element4){
 				var id = '.' + element1;
@@ -110,38 +110,33 @@ $(document).ready(function() {
 	// Give composition of the pizza when selected
 	$('.myPizza li ul li').click( function(event){
 		$(document).find('#description').css('visibility', 'visible');
-		var idElement = $(this).attr('id');
+		// var idElement = $(this).attr('id');
+		// var objectTargeted = idElement.slice(0,-1)
+		// var test_2 = veggiePizza
+		// var test = 'test'
+		// console.log(idElement)
+		// console.log(objectTargeted)
+		// ing(objectTargeted);
+		// ing(test);
+		// ing(test_2)
 
-		if (idElement == 'veggiePizza1'){
-				ingredients(veggiePizza, veggiePizza.veggiePizza1);
+		var id = $(this).attr('id');
+
+		if (id == 'veggiePizza1'|| id =='veggiePizza2'|| id =='veggiePizza3'){
+			ingredients(veggiePizza, id);
 		}
-		
+
+		else if (id == 'meatPizza1'||id == 'meatPizza2'||id == 'meatPizza3'){
+			ingredients(meatPizza, id);
+		}
+
+		else {
+			ingredients(cheesePizza, id);
+		}
+
 		function ingredients(element1, element2){
-			$('#ingredients').text(element1.basicToppings +', '+ element2.extraToppings);
+			$('#ingredients').text(element1.basicToppings +', '+ element1[element2].extraToppings);
 		};
 	});
-
-
-
 });
 
-
-
-// $(document).ready(function() {
-// 	$('.myPizza li ul li').click( function(event){
-// 		$(document).find('#description').css('visibility', 'visible');
-// 		var idElement = $(this).attr('id');
-
-// 		if (idElement == 'veggiePizza1'){
-// 			// var element2 = idElement;
-// 				// if (idElement == 'veggiePizza1' ||'veggiePizza2' || 'veggiePizza3'){
-// 				// 	var element1 = veggiePizza;
-// 				// }
-// 			ingredients(veggiePizza, veggiePizza1);
-// 		}
-		
-// 	});
-// 	function ingredients(element1, element2){
-// 			$('#ingredients').text(element1.topping_1 +' '+ element1.topping_2 +' '+ element1.element2.topping_1+' '+ element1.element2.topping_2);
-// 	}
-// });	
