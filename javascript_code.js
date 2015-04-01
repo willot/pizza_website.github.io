@@ -47,7 +47,11 @@ var veggiePizza = {
 	topping_1 :"mushroom",
 	topping_2 :"mozarella",
 	veggiePizza1 :{ topping_1 :"red pepper",
-				topping_2 :"brocoli"},
+				topping_2 :"brocoli",
+				name1="pizza royale",
+				name2="pizza imperiale"
+				name3="pizza tzar"
+			},
 	veggiePizza2 :{ topping_1 :"asparagus",
 				topping_2 :"spinach"},
  	veggiePizza3 :{topping_1 :"eggplant",
