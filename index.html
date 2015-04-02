@@ -8,20 +8,20 @@
     
     <body>
     	<div id ='header'>
-    		<h1 id='title'>Welcome to the greatest pizza in the World</h1>
+    		<h1 id='title'>Welcome to the Greatest Pizza in the World</h1>
     		<h3>We have three locations conveniently located in the greatest American cities</h3>
-    		<h2 id="invitChoice">Choose a location to have access to our menu</h2>
+    		<h2 id="invitChoice">Choose a location to access our menu:</h2>
     		<div id='flag'></div>
     	</div>	
 
 
-    	<div>
+    	<div id='locationMenu'>
 		    <ul class='myMenu'>
 			    <li><a href='#'>Choose your location</a>
 			    	<ul style='display:none' >
 			        	<li id='Chi'><a href='#Chicago'>The Great Chicago Pizzeria</a></li>
-			            <li id='NY'><a href='#New-York'>La meilleur Pizza New-York</a></li>
-			            <li id='SF'><a href='#San-Fransico'>The ultimate San Fransico Pizza</a></li>
+			            <li id='NY'><a href='#New-York'>La Meilleur Pizza New-York</a></li>
+			            <li id='SF'><a href='#San-Fransico'>The Ultimate San Fransico Pizza</a></li>
 			        </ul>
 			    </li>
 			</ul>
@@ -29,12 +29,12 @@
 
 		<div id='pizzeria' style='display:none'>
 			<h1>Welcome to <span id ='restaurant'>The Great Chicago Pizzeria</span></h1>
-			<h3>See our awesome menu</h3>
+			<h3>See our awesome menu of pizza:</h3>
 			<ul class='myPizza'>
 				<li>Veggie
 			    	<ul style='display:none'>
 			        	<li id='veggiePizza1' class='veggie'>Pizza veg 1</li>
-			            <li id ='veggiePizza2' class='veggie'>Pizza veg 2</li>
+			            <li id='veggiePizza2' class='veggie'>Pizza veg 2</li>
 			            <li id='veggiePizza3' class='veggie'>Pizza veg 3</li>
 			        </ul>
 			    </li>
@@ -58,7 +58,7 @@
 		</div>
 
 		<div id='description' style='display:none'>
-			<h3> This pizza contain the following ingredients in an unorganized order:</h3>
+			<h3>"<span id="pizzaName"></span>" contains the following ingredients:</h3>
 			<p id='ingredients'>Description of the pizza</p>
 		</div>	
 

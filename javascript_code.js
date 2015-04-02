@@ -1,7 +1,7 @@
 var veggiePizza = {
-	basicToppings:['Mushroom',' Mozarella'],
+	basicToppings:['Mushrooms',' Mozarella'],
 	veggiePizza1 :{ 
-				extraToppings: ['Red pepper',' Broccoli',' Onion',' Olive'],
+				extraToppings: ['Red pepper',' Broccoli',' Onions',' Olives'],
 				name:['Pizza Royale','Imperiale Pizza','Tzar Pizza']
 				},
 	veggiePizza2 :{ 
@@ -10,7 +10,7 @@ var veggiePizza = {
 				},
  	veggiePizza3 :{
  				extraToppings: ['Eggplant',' Cucumber'],
-				name:['Really Cucumber Pizza','Cucumber Pizza','That Sounds Bad Pizza']
+				name:['Really Cucumber Pizza','Cucumber Pizza','Eggplant Pizza']
 				}	
 };
 
@@ -18,7 +18,7 @@ var meatPizza = {
 	basicToppings:['Pepperoni',' Mozarella'],
 	meatPizza1 :{
 				extraToppings: ['Beef',' Pork',' Chicken'],
-				name:['The Meat Pizza','The meaty Pizza','The San Fransico Pizza']
+				name:['The Meat Pizza','The Meaty Pizza','The San Fransico Pizza']
 				},
 	meatPizza2 :{ 
 				extraToppings: ['Chicken',' Tomatoes'],
@@ -26,7 +26,7 @@ var meatPizza = {
 				},
  	meatPizza3 :{
  				extraToppings: ['Rabbit',' Asparagus',' Tomatoes'],
- 				name:['PlayBoy Pizza','Bunny Pizza','The Eastern Pizza']
+ 				name:['PlayBoy Pizza','Bunny Pizza','The Easter Pizza']
 				}			
 };
 
@@ -38,7 +38,7 @@ var cheesePizza = {
 				},
 	cheesePizza2 :{ 
 				extraToppings: ['Gruyere',' Brie'],
-				name:['French Pizza','The Frenchy Pizza','The Stincky Pizza']
+				name:['French Pizza','The Frenchy Pizza','The Stincky-Cheese Pizza']
 				},
  	cheesePizza3 :{
  				extraToppings: ['Gouda',' Leerdammer'],
@@ -62,6 +62,7 @@ $(document).ready(function() {
 	// Modify the page when a location is selected
 	$('.myMenu li ul li').click( function(event){
 		var location = $(this).attr('id');
+		$('#flag').empty();
 
 		$(document).find('#pizzeria').show();
 		// $('.myMenu').hide();
@@ -80,6 +81,7 @@ $(document).ready(function() {
 
 		else if (location == 'NY'){
 			$('#title ,#restaurant').text('La meilleur Pizza New-York');
+			$('#flag').prepend('<img id="imgNY" src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_New_York.svg/2000px-Flag_of_New_York.svg.png" />')
 			var index = 1
 			changePizzaName('veggie', index, veggiePizza, 'veggiePizza');
 			changePizzaName('meat', index, meatPizza, 'meatPizza');
@@ -87,7 +89,8 @@ $(document).ready(function() {
 		}
 
 		else {
-			$('#title ,#restaurant').text('The ultimate San Fransico Pizza');
+			$('#title ,#restaurant').text('The Ultimate San Fransico Pizza');
+			$('#flag').prepend('<img id="imgSF" src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_of_San_Francisco.svg/2000px-Flag_of_San_Francisco.svg.png" />')
 			var index = 2
 			changePizzaName('veggie', index, veggiePizza, 'veggiePizza');
 			changePizzaName('meat', index, meatPizza, 'meatPizza');
@@ -115,20 +118,30 @@ $(document).ready(function() {
 		var id = $(this).attr('id');
 
 		if (classObject == 'veggie'){
+			var index = 0
 			ingredients(veggiePizza, id);
+			pizzaName(veggiePizza, id,index);
 		}
 
 		else if (classObject == 'meat' ){
+			var index =0
 			ingredients(meatPizza, id);
+			pizzaName(meatPizza, id, index);
 		}
 
 		else {
+			var index =0
 			ingredients(cheesePizza, id);
+			pizzaName(cheesePizza, id, index);
 		}
 
 		function ingredients(object, objectAttribute){
 			$('#ingredients').text(object.basicToppings +', '+ object[objectAttribute].extraToppings);
 		};
+
+		function pizzaName(object, objectAttribute, index){
+			$('#pizzaName').text(object[objectAttribute].name[index])
+		}
 	});
 });
 
