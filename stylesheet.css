@@ -24,23 +24,24 @@ body {
 
 /*image added when a location is selected*/
 #imgChicago{
-	position: relative;
-	top: -175px;
-	left: -800px;
+	top: 50px;
+	left: 70px;
+	position: absolute;
 	width: 10%;
+
 }
 
 #imgNY{
-	position: relative;
-	top: -175px;
-	left: -800px;
+	top: 50px;
+	left: 70px;
+	position: absolute;
 	width: 10%;
 }
 
 #imgSF{
-	position: relative;
-	top: -175px;
-	left: -800px;
+	top: 50px;
+	left: 70px;
+	position: absolute;
 	width: 10%;
 }
 

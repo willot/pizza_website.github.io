@@ -85,8 +85,9 @@ $(document).ready(function() {
 		var location = $(this).attr('id');
 		$('#flag').empty();
 
-		$(document).find('#pizzeria').show();
-		$(document).find('#description').hide();
+		$('#pizzeria').show();
+		$('#description').hide();
+
 
 		if (location == 'Chi'){
 			$('#title ,#restaurant').text(restaurant.chicago.name);
@@ -150,7 +151,7 @@ $(document).ready(function() {
 
 	// Give composition of the pizza when selected
 	$('.myPizza li ul li').click( function(event){
-		$(document).find('#description').show();
+		$('#description').show();
 
 		var id = $(this).attr('id');
 
@@ -195,7 +196,6 @@ $(document).ready(function() {
 
 		// Write the pizza name in the pizza description
 		function pizzaName(typePizza, typePizzaIndex, indexName){
-			console.log(index);
 			$('#pizzaName').text(typePizza[typePizzaIndex].name[indexName]);
 		};
 
