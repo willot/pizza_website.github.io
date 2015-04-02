@@ -1,3 +1,5 @@
+
+// Different type of pizza objects
 var veggiePizza = {
 	basicToppings:['Mushrooms',' Mozarella'],
 	veggiePizza1 :{ 
@@ -46,21 +48,22 @@ var cheesePizza = {
 				}	
 };
 
+// Different type of restaurants objects
 var restaurant ={
 	chicago:{
 		name:'The Great Chicago Pizzeria',
 		address:'2000 West Madison St., 60290 Chicago',
-		phone:'(312) 000 0000'
+		phone:'(312) 000-0000'
 	},
 	newYork:{
 		name:'La meilleur Pizza New-York',
 		address:'2000 Broadway St., 10001 NY',
-		phone:'(718) 000 0000'
+		phone:'(718) 000-0000'
 	},
 	sanFranscisco:{
 		name:'The Ultimate San Fransico Pizza',
 		address:'2000 Lombard St., 94101 SF',
-		phone:'(415) 000 0000'
+		phone:'(415) 000-0000'
 	}
 
 };
@@ -90,8 +93,11 @@ $(document).ready(function() {
 			$('#address').text(restaurant.chicago.address);
 			$('#phone').text(restaurant.chicago.phone);
 			$('#flag').prepend('<img id="imgChicago" src="http://www.flags-and-anthems.com/media/flags/flagge-chicago.gif" />')
-			$('#invitChoice').hide()
-			var index = 0
+			$('#invitChoice').hide();
+			$('#pizzeria').removeClass();
+			$('#pizzeria').addClass('Chi');
+
+			var index = 0;
 			changePizzaName('veggie', index, veggiePizza, 'veggiePizza');
 			changePizzaName('meat', index, meatPizza, 'meatPizza');
 			changePizzaName('cheese', index, cheesePizza, 'cheesePizza');
@@ -103,7 +109,11 @@ $(document).ready(function() {
 			$('#address').text(restaurant.newYork.address);
 			$('#phone').text(restaurant.newYork.phone);
 			$('#flag').prepend('<img id="imgNY" src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_New_York.svg/2000px-Flag_of_New_York.svg.png" />')
-			var index = 1
+			$('#invitChoice').hide();
+			$('#pizzeria').removeClass();
+			$('#pizzeria').addClass('NY');
+
+			var index = 1;
 			changePizzaName('veggie', index, veggiePizza, 'veggiePizza');
 			changePizzaName('meat', index, meatPizza, 'meatPizza');
 			changePizzaName('cheese', index, cheesePizza, 'cheesePizza');
@@ -114,21 +124,25 @@ $(document).ready(function() {
 			$('#address').text(restaurant.sanFranscisco.address);
 			$('#phone').text(restaurant.sanFranscisco.phone);
 			$('#flag').prepend('<img id="imgSF" src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_of_San_Francisco.svg/2000px-Flag_of_San_Francisco.svg.png" />')
-			var index = 2
+			$('#invitChoice').hide();
+			$('#pizzeria').removeClass();
+			$('#pizzeria').addClass('SF');
+
+			var index = 2;
 			changePizzaName('veggie', index, veggiePizza, 'veggiePizza');
 			changePizzaName('meat', index, meatPizza, 'meatPizza');
 			changePizzaName('cheese', index, cheesePizza, 'cheesePizza');
 
 		}
-
-		function changePizzaName(className, indexRestaurant, object, objectAttribute){
+		// change the pizza name in function of location
+		function changePizzaName(className, indexRestaurant, objectPizzaType, pizzaType){
 				var id = '.' + className;
-				var indexProperty = 1;
+				var indexPizza = 1;
 
 				$(id).each(function(){
-					var property = objectAttribute + indexProperty;
-					$(this).text(object[property].name[indexRestaurant]);
-					indexProperty ++;
+					var property = pizzaType + indexPizza;
+					$(this).text(objectPizzaType[property].name[indexRestaurant]);
+					indexPizza ++;
 				});		
 		};
 	
@@ -137,41 +151,58 @@ $(document).ready(function() {
 	// Give composition of the pizza when selected
 	$('.myPizza li ul li').click( function(event){
 		$(document).find('#description').show();
-		var classObject = $(this).attr('class');
+
 		var id = $(this).attr('id');
 
-		if (classObject == 'veggie'){
-			var index = 0
-			ingredients(veggiePizza, id);
-			pizzaName(veggiePizza, id,index);
-			pizzaType(classObject);
+		// determine the index for the pizza name in function of location
+		var city = $('#pizzeria').attr('class');
+		if (city == 'Chi'){
+			var index = 0;
+		}
+		else if (city == 'NY'){
+			var index = 1;
+		}
+		else {
+			var index = 2;
 		}
 
-		else if (classObject == 'meat' ){
-			var index =0
+		var typeOfPizza = $(this).attr('class');
+		
+
+
+		if (typeOfPizza == 'veggie'){
+			ingredients(veggiePizza, id);
+			pizzaName(veggiePizza, id, index);
+			pizzaType(typeOfPizza);
+		}
+
+		else if (typeOfPizza == 'meat' ){
 			ingredients(meatPizza, id);
 			pizzaName(meatPizza, id, index);
-			pizzaType(classObject);
+			pizzaType(typeOfPizza);
 		}
 
 		else {
-			var index =0
 			ingredients(cheesePizza, id);
 			pizzaName(cheesePizza, id, index);
-			pizzaType(classObject);
+			pizzaType(typeOfPizza);
 		}
 
-		function ingredients(object, objectAttribute){
-			$('#ingredients').text(object.basicToppings +', '+ object[objectAttribute].extraToppings);
+		// add the list of ingredients contain in the pizza to the page
+		function ingredients(typePizza, typePizzaIndex){
+			$('#ingredients').text(typePizza.basicToppings +', '+ typePizza[typePizzaIndex].extraToppings);
 		};
 
-		function pizzaName(object, objectAttribute, index){
-			$('#pizzaName').text(object[objectAttribute].name[index]);
+		// Write the pizza name in the pizza description
+		function pizzaName(typePizza, typePizzaIndex, indexName){
+			console.log(index);
+			$('#pizzaName').text(typePizza[typePizzaIndex].name[indexName]);
 		};
 
+		// Write the type of the selected pizza in the description & capitalize the pizza type
 		function pizzaType(type){
-			var capitalized = type.charAt(0).toUpperCase() + type.substring(1);
-			$('#pizzaType').text(capitalized);
+			var capitalizedTypeName = type.charAt(0).toUpperCase() + type.substring(1);
+			$('#pizzaType').text(capitalizedTypeName);
 		};
 	});
 });

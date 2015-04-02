@@ -15,7 +15,6 @@ body {
 
 #header h1{
 	font-size: 55px;
-
 }
 
 #header h3{
@@ -23,7 +22,7 @@ body {
 	margin-top: 10px;
 }
 
-/*image added when select a location*/
+/*image added when a location is selected*/
 #imgChicago{
 	position: relative;
 	top: -175px;
@@ -45,11 +44,10 @@ body {
 	width: 10%;
 }
 
-/*div that include the drop down menu*/
+/*div that include the drop down location menu*/
 #locationMenu{
 	
 	margin-top: 20px;
-/*	position: fixed;*/
 	margin-left:800px;
 	right:0;
 	margin-left: auto;
@@ -57,8 +55,6 @@ body {
 }
 
 /*Control the location drop down menu*/
-.myMenu {
-}
 
 .myMenu li {
 	list-style:none;
@@ -66,55 +62,60 @@ body {
 	font-size: 20px;
 	font-weight:bold;
 	color: black;
-}
-
-.myMenu li a:link, .myMenu li a:visited {
-	display:block;
 	text-decoration:none;
 	background-color:#F6F6F6;
 	padding: 10px 30px;
-	margin:0;
-	color:#111;
+	border-right: 1px solid #2B2B2B;
 }
 
 .myMenu li a:hover {
 	background-color:#E9E581;	
 }
 
-/*style the sub menu*/
+/*style the sub menu of location drop down menu*/
 .myMenu li ul {
 	position:absolute;
-	border-top:1px solid#2B2B2B;
-	margin:0;
+	border-top:1px solid #2B2B2B;
+	margin-top: 11px;
 	padding:0;
 }
 
 .myMenu li ul li {
-	display:inline;
 	float:none;
-}
-
-.myMenu li ul li a:link, .myMenu li ul li a:visited {
 	background-color:#F6F6F6;
 	width:auto;
 }
 
-.myMenu li ul li a:hover {
+.myMenu li ul li:hover {
 	background-color:#E9E581;	
 }
 
-/*Div that include the drop down restaurant menu*/
+/*Div that include the drop down pizza type menu*/
 #pizzeria{
 	margin-top: 150px;
 	margin-left: 200px;
 }
 
 #pizzeria h1{
-	font-size: 45px
+	font-size: 45px;
 }
 
 #pizzeria h3{
-	font-size: 30px
+	font-size: 30px;
+}
+
+#pizzeria p{
+	font-size: 20px;
+	font-weight:bold;
+	margin-top:-20px;
+}
+
+#phone{
+	font-size: 20px;
+}
+
+#address{
+	font-size: 20px;
 }
 
 /*Style the pizza menu*/
@@ -135,16 +136,6 @@ body {
 	border-right: 1px solid #2B2B2B;
 }
 
-/*.myPizza li:link {
-	display:block;
-	text-decoration:none;
-	background-color:#F6F6F6;
-	padding: 0.5em 2em;
-	margin:0;
-	border-right: 1px solid #fff;
-	color:#111;
-}*/
-
 .myPizza li:hover {
 	background-color:#E9E581;	
 }
@@ -153,7 +144,6 @@ body {
 .myPizza li ul {
 	position:absolute;
 	border-top:1px solid #2B2B2B;
-	/*margin-top: 0.5em;*/
 	margin-top: 11px;
 	padding:0;
 }
@@ -162,7 +152,6 @@ body {
 	float:none;
 	background-color:#F6F6F6;
 	width:auto;
-/*	margin:0;*/
 
 }
 
@@ -170,7 +159,7 @@ body {
 	background-color:#E9E581;
 }
 
-/*control the area ingredients area*/
+/*control the description div that contain info on selected pizza*/
 #description{
 	clear: both;
 	margin-top: 220px;
@@ -182,5 +171,5 @@ body {
 
 #pizzaName{
 	font-style: oblique;
-	}
+}
 
