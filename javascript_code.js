@@ -46,6 +46,24 @@ var cheesePizza = {
 				}	
 };
 
+var restaurant ={
+	chicago:{
+		name:'The Great Chicago Pizzeria',
+		address:'2000 West Madison St., 60290 Chicago',
+		phone:'(312) 000 0000'
+	},
+	newYork:{
+		name:'La meilleur Pizza New-York',
+		address:'2000 Broadway St., 10001 NY',
+		phone:'(718) 000 0000'
+	},
+	sanFranscisco:{
+		name:'The Ultimate San Fransico Pizza',
+		address:'2000 Lombard St., 94101 SF',
+		phone:'(415) 000 0000'
+	}
+
+};
 
 
 $(document).ready(function() {
@@ -68,7 +86,9 @@ $(document).ready(function() {
 		$(document).find('#description').hide();
 
 		if (location == 'Chi'){
-			$('#title ,#restaurant').text('The Great Chicago Pizzeria');
+			$('#title ,#restaurant').text(restaurant.chicago.name);
+			$('#address').text(restaurant.chicago.address);
+			$('#phone').text(restaurant.chicago.phone);
 			$('#flag').prepend('<img id="imgChicago" src="http://www.flags-and-anthems.com/media/flags/flagge-chicago.gif" />')
 			$('#invitChoice').hide()
 			var index = 0
@@ -79,7 +99,9 @@ $(document).ready(function() {
 		}
 
 		else if (location == 'NY'){
-			$('#title ,#restaurant').text('La meilleur Pizza New-York');
+			$('#title ,#restaurant').text(restaurant.newYork.name);
+			$('#address').text(restaurant.newYork.address);
+			$('#phone').text(restaurant.newYork.phone);
 			$('#flag').prepend('<img id="imgNY" src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_New_York.svg/2000px-Flag_of_New_York.svg.png" />')
 			var index = 1
 			changePizzaName('veggie', index, veggiePizza, 'veggiePizza');
@@ -88,7 +110,9 @@ $(document).ready(function() {
 		}
 
 		else {
-			$('#title ,#restaurant').text('The Ultimate San Fransico Pizza');
+			$('#title ,#restaurant').text(restaurant.sanFranscisco.name);
+			$('#address').text(restaurant.sanFranscisco.address);
+			$('#phone').text(restaurant.sanFranscisco.phone);
 			$('#flag').prepend('<img id="imgSF" src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_of_San_Francisco.svg/2000px-Flag_of_San_Francisco.svg.png" />')
 			var index = 2
 			changePizzaName('veggie', index, veggiePizza, 'veggiePizza');
