@@ -69,6 +69,8 @@ $(document).ready(function() {
 
 		if (location == 'Chi'){
 			$('#title ,#restaurant').text('The Great Chicago Pizzeria');
+			$('#flag').prepend('<img id="imgChicago" src="http://www.flags-and-anthems.com/media/flags/flagge-chicago.gif" />')
+			$('#invitChoice').hide()
 			var index = 0
 			changePizzaName('veggie', index, veggiePizza, 'veggiePizza');
 			changePizzaName('meat', index, meatPizza, 'meatPizza');
