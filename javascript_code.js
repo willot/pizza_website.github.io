@@ -65,8 +65,7 @@ $(document).ready(function() {
 		$('#flag').empty();
 
 		$(document).find('#pizzeria').show();
-		// $('.myMenu').hide();
-		// $('.myMenu').attr('id', 'changeLocation')
+		$(document).find('#description').hide();
 
 		if (location == 'Chi'){
 			$('#title ,#restaurant').text('The Great Chicago Pizzeria');
@@ -121,18 +120,21 @@ $(document).ready(function() {
 			var index = 0
 			ingredients(veggiePizza, id);
 			pizzaName(veggiePizza, id,index);
+			pizzaType(classObject);
 		}
 
 		else if (classObject == 'meat' ){
 			var index =0
 			ingredients(meatPizza, id);
 			pizzaName(meatPizza, id, index);
+			pizzaType(classObject);
 		}
 
 		else {
 			var index =0
 			ingredients(cheesePizza, id);
 			pizzaName(cheesePizza, id, index);
+			pizzaType(classObject);
 		}
 
 		function ingredients(object, objectAttribute){
@@ -140,8 +142,13 @@ $(document).ready(function() {
 		};
 
 		function pizzaName(object, objectAttribute, index){
-			$('#pizzaName').text(object[objectAttribute].name[index])
-		}
+			$('#pizzaName').text(object[objectAttribute].name[index]);
+		};
+
+		function pizzaType(type){
+			var capitalized = type.charAt(0).toUpperCase() + type.substring(1);
+			$('#pizzaType').text(capitalized);
+		};
 	});
 });
 
