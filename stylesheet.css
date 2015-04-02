@@ -48,13 +48,16 @@ body {
 #locationMenu{
 	
 	margin-top: 20px;
-	margin-left:800px;
 	right:0;
 	margin-left: auto;
 	margin-right: auto;
 }
 
 /*Control the location drop down menu*/
+
+.myMenu{
+	margin-left:160px;
+}
 
 .myMenu li {
 	list-style:none;
@@ -92,7 +95,7 @@ body {
 
 /*Div that include the drop down pizza type menu*/
 #pizzeria{
-	margin-top: 150px;
+	margin-top: 100px;
 	margin-left: 200px;
 }
 
@@ -162,7 +165,7 @@ body {
 /*control the description div that contain info on selected pizza*/
 #description{
 	clear: both;
-	margin-top: 220px;
+	margin-top: 200px;
 	margin-left: 200px;
 	font-size: 30px;
 	color:#9932CC;

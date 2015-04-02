@@ -1,7 +1,7 @@
 
 // Different type of pizza objects
 var veggiePizza = {
-	basicToppings:['Mushrooms',' Mozarella'],
+	basicToppings:['Mushrooms',' Mozzarella'],
 	veggiePizza1 :{ 
 				extraToppings: ['Red pepper',' Broccoli',' Onions',' Olives'],
 				name:['Pizza Royale','Imperiale Pizza','Tzar Pizza']
@@ -17,10 +17,10 @@ var veggiePizza = {
 };
 
 var meatPizza = {
-	basicToppings:['Pepperoni',' Mozarella'],
+	basicToppings:['Pepperoni',' Mozzarella'],
 	meatPizza1 :{
 				extraToppings: ['Beef',' Pork',' Chicken'],
-				name:['The Meat Pizza','The Meaty Pizza','The San Fransico Pizza']
+				name:['The 4 Meats Pizza','The Meaty Pizza','The San Fransico Pizza']
 				},
 	meatPizza2 :{ 
 				extraToppings: ['Chicken',' Tomatoes'],
@@ -33,7 +33,7 @@ var meatPizza = {
 };
 
 var cheesePizza = {
-	basicToppings:['Provolone',' Mozarella'],
+	basicToppings:['Provolone',' Mozzarella'],
 	cheesePizza1 :{ 
 				extraToppings: ['American Cheese',' Munster'],
 				name:['The American Pizza','The Americana Pizza','The Merica Pizza']
