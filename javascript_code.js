@@ -1,23 +1,23 @@
 var veggiePizza = {
 	basicToppings:['Mushroom',' Mozarella'],
 	veggiePizza1 :{ 
-				extraToppings: ['Red pepper',' Broccoli','Onion','Olive'],
+				extraToppings: ['Red pepper',' Broccoli',' Onion',' Olive'],
 				name:['Pizza Royale','Imperiale Pizza','Tzar Pizza']
 				},
 	veggiePizza2 :{ 
-				extraToppings: ['Red Asparagus',' Spinach'],
+				extraToppings: ['Asparagus',' Spinach'],
 				name:['Super Veggie Pizza','Ultimate Veggie Pizza','Just Veggie Pizza']
 				},
  	veggiePizza3 :{
- 				extraToppings: ['Red Eggplant',' Cucumber'],
+ 				extraToppings: ['Eggplant',' Cucumber'],
 				name:['Really Cucumber Pizza','Cucumber Pizza','That Sounds Bad Pizza']
 				}	
 };
 
 var meatPizza = {
-	basicToppings:['Pepperoni','Mozarella'],
+	basicToppings:['Pepperoni',' Mozarella'],
 	meatPizza1 :{
-				extraToppings: ['Red Beef',' Porc','Chicken'],
+				extraToppings: ['Beef',' Pork',' Chicken'],
 				name:['The Meat Pizza','The meaty Pizza','The San Fransico Pizza']
 				},
 	meatPizza2 :{ 
@@ -25,13 +25,13 @@ var meatPizza = {
 				name:['Chicky Pizza','Chicken Pizza','The SF Chicken Pizza']
 				},
  	meatPizza3 :{
- 				extraToppings: ['Rabbit',' Asparagus','Tomatoes'],
+ 				extraToppings: ['Rabbit',' Asparagus',' Tomatoes'],
  				name:['PlayBoy Pizza','Bunny Pizza','The Eastern Pizza']
 				}			
 };
 
 var cheesePizza = {
-	basicToppings:['Provolone','Mozarella'],
+	basicToppings:['Provolone',' Mozarella'],
 	cheesePizza1 :{ 
 				extraToppings: ['American Cheese',' Munster'],
 				name:['The American Pizza','The Americana Pizza','The Merica Pizza']
@@ -61,13 +61,14 @@ $(document).ready(function() {
 
 	// Modify the page when a location is selected
 	$('.myMenu li ul li').click( function(event){
+		var location = $(this).attr('id');
 
-		$(document).find('#pizzeria').css('visibility', 'visible');
-		$('.myMenu').hide();
+		$(document).find('#pizzeria').show();
+		// $('.myMenu').hide();
+		// $('.myMenu').attr('id', 'changeLocation')
 
-		if ($(this).attr('id') == 'Chi'){
-			$('#title').text('The Great Chicago Pizzeria');
-			$('#restaurant').text('The Great Chicago Pizzeria');
+		if (location == 'Chi'){
+			$('#title ,#restaurant').text('The Great Chicago Pizzeria');
 			var index = 0
 			changePizzaName('veggie', index, veggiePizza, 'veggiePizza');
 			changePizzaName('meat', index, meatPizza, 'meatPizza');
@@ -75,9 +76,8 @@ $(document).ready(function() {
 			
 		}
 
-		else if ($(this).attr('id') == 'NY'){
-			$('#title').text('La meilleur Pizza New-York');
-			$('#restaurant').text('TLa meilleur Pizza New-York');
+		else if (location == 'NY'){
+			$('#title ,#restaurant').text('La meilleur Pizza New-York');
 			var index = 1
 			changePizzaName('veggie', index, veggiePizza, 'veggiePizza');
 			changePizzaName('meat', index, meatPizza, 'meatPizza');
@@ -85,8 +85,7 @@ $(document).ready(function() {
 		}
 
 		else {
-			$('#title').text('The ultimate San Fransico Pizza');
-			$('#restaurant').text('The ultimate San Fransico Pizza');
+			$('#title ,#restaurant').text('The ultimate San Fransico Pizza');
 			var index = 2
 			changePizzaName('veggie', index, veggiePizza, 'veggiePizza');
 			changePizzaName('meat', index, meatPizza, 'meatPizza');
@@ -94,13 +93,13 @@ $(document).ready(function() {
 
 		}
 
-		function changePizzaName(element1, element2, element3, element4){
-				var id = '.' + element1;
+		function changePizzaName(className, indexRestaurant, object, objectAttribute){
+				var id = '.' + className;
 				var indexProperty = 1;
 
 				$(id).each(function(){
-					var property = element4 + indexProperty;
-					$(this).text(element3[property].name[element2]);
+					var property = objectAttribute + indexProperty;
+					$(this).text(object[property].name[indexRestaurant]);
 					indexProperty ++;
 				});		
 		};
@@ -109,24 +108,15 @@ $(document).ready(function() {
 
 	// Give composition of the pizza when selected
 	$('.myPizza li ul li').click( function(event){
-		$(document).find('#description').css('visibility', 'visible');
-		// var idElement = $(this).attr('id');
-		// var objectTargeted = idElement.slice(0,-1)
-		// var test_2 = veggiePizza
-		// var test = 'test'
-		// console.log(idElement)
-		// console.log(objectTargeted)
-		// ing(objectTargeted);
-		// ing(test);
-		// ing(test_2)
-
+		$(document).find('#description').show();
+		var classObject = $(this).attr('class');
 		var id = $(this).attr('id');
 
-		if (id == 'veggiePizza1'|| id =='veggiePizza2'|| id =='veggiePizza3'){
+		if (classObject == 'veggie'){
 			ingredients(veggiePizza, id);
 		}
 
-		else if (id == 'meatPizza1'||id == 'meatPizza2'||id == 'meatPizza3'){
+		else if (classObject == 'meat' ){
 			ingredients(meatPizza, id);
 		}
 
@@ -134,8 +124,8 @@ $(document).ready(function() {
 			ingredients(cheesePizza, id);
 		}
 
-		function ingredients(element1, element2){
-			$('#ingredients').text(element1.basicToppings +', '+ element1[element2].extraToppings);
+		function ingredients(object, objectAttribute){
+			$('#ingredients').text(object.basicToppings +', '+ object[objectAttribute].extraToppings);
 		};
 	});
 });

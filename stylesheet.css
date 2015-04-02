@@ -1,3 +1,8 @@
+* {
+	background: black;
+	color: white;
+}
+
 .myMenu {
 	margin:0;
 	padding:0;
@@ -47,10 +52,11 @@
 }
 
 #pizzeria{
-	visibility:hidden;
+
 }
 
 
+/*Style the pizza menu*/
 .myPizza {
 	margin:0;
 	padding:0;
@@ -60,9 +66,13 @@
 	list-style:none;
 	float:left;
 	font:12px Arial, Helvetica, sans-serif #111;
+	text-decoration:none;
+	background-color:#09F;
+	padding: 0.5em 2em;
+	border-right: 1px solid #fff;
 }
 
-.myPizza li a:link, .myPizza li a:visited {
+.myPizza li:link {
 	display:block;
 	text-decoration:none;
 	background-color:#09F;
@@ -72,34 +82,37 @@
 	color:#111;
 }
 
-.myPizza li a:hover {
+.myPizza li:hover {
 	background-color:#0CF;	
 }
 
-/*style the sub menu*/
+/*style the sub menu of pizza*/
 .myPizza li ul {
 	position:absolute;
-/*	visibility:hidden;*/
 	border-top:1px solid #fff;
-	margin:0;
+	margin-top: 0.5em;
 	padding:0;
 }
 
 .myPizza li ul li {
-	display:inline;
 	float:none;
-}
-
-.myPizza li ul li a:link, .myPizza li ul li a:visited {
 	background-color:#09F;
 	width:auto;
+	margin:0;
+
 }
 
-.myPizza li ul li a:hover {
-	background-color:#0CF;	
+.myPizza li ul li:hover {
+	background-color:#0CF;
 }
+
+
+
 
 #description{
-	visibility:hidden;
 	clear: both;
+}
+
+#changeLocation{
+	position:relative;
 }
